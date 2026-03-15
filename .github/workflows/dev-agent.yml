@@ -1,0 +1,58 @@
+name: dev-agent
+on:
+  workflow_dispatch:
+    inputs:
+      run_key:
+        required: false
+        type: string
+      mode:
+        required: false
+        type: string
+      task_id:
+        required: false
+        type: string
+      task_title:
+        required: false
+        type: string
+      task_objective:
+        required: false
+        type: string
+      board_id:
+        required: false
+        type: string
+      branch_name:
+        required: false
+        type: string
+      target_ref:
+        required: false
+        type: string
+      repo_full_name:
+        required: false
+        type: string
+      control_plane_base_url:
+        required: false
+        type: string
+      control_plane_event_url:
+        required: false
+        type: string
+      runner_labels_json:
+        required: false
+        type: string
+      max_changed_files:
+        required: false
+        type: string
+      max_diff_bytes:
+        required: false
+        type: string
+      require_tests:
+        required: false
+        type: string
+jobs:
+  accept-dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo inputs
+        run: |
+          echo "run_key=${{ inputs.run_key }}"
+          echo "mode=${{ inputs.mode }}"
+          echo "task_id=${{ inputs.task_id }}"
